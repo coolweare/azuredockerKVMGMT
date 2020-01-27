@@ -1,0 +1,11 @@
+﻿[
+    {
+        "keyVault":  {
+        "id": "/subscriptions/4beba2a6-63b5-41dd-a125-060b155574af/resourceGroups/KEY/providers/Microsoft.KeyVault/vaults/keytest11"
+        },
+    
+        "key":  "nice",
+        "value":  "value1"
+    }
+
+]
