@@ -1,2 +1,2 @@
-# insight Tasks
-insight lab
+# Insight Tasks
+Insight Keyvault lab
