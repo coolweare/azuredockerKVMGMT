@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+
+Label Maintainer="cloudadminteam"
+
+ADD gatazkeyvalue.ps1 /home/temp/keyvault
+ADD tryme.ps1 /home/temp/keyvault
+ADD setvalue.ps1 /home/temp/keyvault 
+ADD template.json /home/temp/keyvault
+ADD parameters.json /home/temp/keyvault
+ADD keyvalue.json /home/temp/keyvault
+
+RUN az login
+RUN powershell.exe -executionpolicy bypass New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile home/temp/keyvault/template.json `
+  -TemplateParameterFile home/temp/keyvault/parameters.json
+CMD powershell .\setvalue.ps1 -keyvault ; .\getsAZkeyvalue.ps1
